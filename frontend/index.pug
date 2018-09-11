@@ -6,12 +6,23 @@ html
     script(src='./javascripts/all.js')
   body
     .container
-      .nav
-        ul.main_menu
-          li УЧИТЬ КАНДЗИ
-          li СМОТРЕТЬ СТАТИСТИКУ
-          li О ПРИЛОЖЕНИИ
+      .nav_container
+        .nav
+          ul.main_menu
+            li УЧИТЬ КАНДЗИ
+            li СМОТРЕТЬ СТАТИСТИКУ
+            li О ПРИЛОЖЕНИИ
+        .logo
+          img(src='https://staticaltmetric.s3.amazonaws.com/uploads/2015/10/dark-logo-for-site.png')
       .content
+        .sidebar
+          .styled_select
+            select
+              option(value='JLPT 5') JLPT 5
+              option(value='JLPT 4') JLPT 4
+              option(value='JLPT 3') JLPT 3
+              option(value='JLPT 2') JLPT 2
+              option(value='JLPT 1') JLPT 1
         .table-container
           table
             tr
@@ -118,14 +129,6 @@ html
               td 洗
               td 洗
               td 洗
-      .sidebar
-        .styled_select
-          select
-            option(value='JLPT 5') JLPT 5
-            option(value='JLPT 4') JLPT 4
-            option(value='JLPT 3') JLPT 3
-            option(value='JLPT 2') JLPT 2
-            option(value='JLPT 1') JLPT 1
       footer
         p Copyright is a lie. Use my tempate as you wish, sick bastard
 
