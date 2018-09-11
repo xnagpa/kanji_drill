@@ -1,3 +1,4 @@
+//copypasted styled select
 document.addEventListener('DOMContentLoaded', function(){
   var x, i, j, selElmnt, a, b, c;
   /*look for any elements with the class "custom-select":*/
