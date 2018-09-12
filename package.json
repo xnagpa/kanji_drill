@@ -21,5 +21,8 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylus": "^2.7.0",
     "stylus": "^0.54.5"
+  },
+  "dependencies": {
+    "styleselect": "^1.0.3"
   }
 }
