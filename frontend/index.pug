@@ -6,33 +6,30 @@ html
     script(src='./javascripts/all.js')
   body
     .container
-      .nav-container
-        .nav
-          ul.nav__ul.main_menu
-            li.nav__ul__li Учить кандзи
-            li.nav__ul__li Смотреть статистику
-            li.nav__ul__li О приложении
-        .logo
+      .container__nav
+        nav.nav
+          ul.nav__ul
+            li.nav__li Учить кандзи
+            li.nav__li Смотреть статистику
+            li.nav__li О приложении
+        .nav__logo
           img(src='https://staticaltmetric.s3.amazonaws.com/uploads/2015/10/dark-logo-for-site.png' height='50px')
-      .content
+      .container__content
         .sidebar
           .styled_select
-            - var finalLevel = 5
             select
-              while finalLevel >= 1 
-                option(value='JLPT') JLPT #{finalLevel}
-                - finalLevel--
-        .table-container
-          table.table-container__table
-            - var n = 0 
-            while n < 8
+              - for (var i = 5; i >=1; --i) {
+                option(value='JLPT') JLPT #{i}
+              - }
+        .container__table
+          table.table
+            - for (var i = 0; i < 8; ++i) {
               tr
-                - var k = 0
-                while k < 12
-                  td.table-container__table__td 洗
-                  - k++
-              - n++
+                - for (var j = 0; j < 12; ++j) {
+                  td.table__td 洗
+                - }
+              - }
 
-      footer
+      footer.container__footer
         p Copyright is a lie. Use my tempate as you wish, sick bastard
 
