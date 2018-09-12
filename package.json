@@ -23,6 +23,7 @@
     "stylus": "^0.54.5"
   },
   "dependencies": {
+    "choices.js": "^3.0.4",
     "styleselect": "^1.0.3"
   }
 }
