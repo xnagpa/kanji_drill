@@ -6,12 +6,12 @@ html
     script(src='./javascripts/all.js')
   body
     .container
-      .nav_container
+      .nav-container
         .nav
-          ul.main_menu
-            li Учить кандзи
-            li Смотреть статистику
-            li О приложении
+          ul.nav__ul.main_menu
+            li.nav__ul__li Учить кандзи
+            li.nav__ul__li Смотреть статистику
+            li.nav__ul__li О приложении
         .logo
           img(src='https://staticaltmetric.s3.amazonaws.com/uploads/2015/10/dark-logo-for-site.png' height='50px')
       .content
@@ -23,13 +23,13 @@ html
                 option(value='JLPT') JLPT #{finalLevel}
                 - finalLevel--
         .table-container
-          table
+          table.table-container__table
             - var n = 0 
             while n < 8
               tr
                 - var k = 0
                 while k < 12
-                  td 洗
+                  td.table-container__table__td 洗
                   - k++
               - n++
 
