@@ -20,17 +20,15 @@ html
         .sidebar
           .styled_select
             select
-              - for (var i = 5; i >=1; --i) {
+              - for (var i = 5; i >=1; --i)
                 option(value='JLPT') JLPT #{i}
-              - }
         .container__table
           table.table
-            - for (var i = 0; i < 8; ++i) {
+            - for (var i = 0; i < 8; ++i)
               tr
-                - for (var j = 0; j < 12; ++j) {
+                - for (var j = 0; j < 12; ++j)
                   td.table__td 洗
-                - }
-              - }
+
 
       footer.container__footer
         p Copyright is a lie. Use my tempate as you wish, sick bastard
