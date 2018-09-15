@@ -18,20 +18,7 @@ html
         .nav__logo
           img(src='https://staticaltmetric.s3.amazonaws.com/uploads/2015/10/dark-logo-for-site.png' height='50px')
       .container__content
-        .sidebar
-          .styled_select
-            select
-              - for (var i = 5; i >=1; --i)
-                option(value=i) JLPT #{i}
-          .answer
-            .answer__button._color_blue.js-know-well
-              p Знаю хорошо
-            .answer__button._color_red.js-know-bad
-              p Знаю не очень хорошо
-
-        .container__table
-          table.table
-
+        canvas(width='300' height='300').statistics
 
     footer.container__footer
       p Copyright is a lie. Use my tempate as you wish, sick bastard

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('MEEEEH!!!!');
   const wellButton = document.querySelector('.js-know-well');
   const badButton = document.querySelector('.js-know-bad');
 
