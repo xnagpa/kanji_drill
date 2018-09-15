@@ -4,5 +4,32 @@ html
     meta(charset='UTF-8')
     link(rel='stylesheet', href='./styles/main.css')
     script(src='./javascripts/all.js')
+    link(rel='stylesheet', href='../node_modules/choices.js/assets/styles/css/choices.min.css')
+    script(src='../node_modules/choices.js/assets/scripts/dist/choices.min.js')
   body
-    .header Welcome
+    .container
+      .container__nav
+        nav.nav
+          ul.nav__ul
+            li.nav__li Учить кандзи
+            li.nav__li Смотреть статистику
+            li.nav__li О приложении
+        .nav__logo
+          img(src='https://staticaltmetric.s3.amazonaws.com/uploads/2015/10/dark-logo-for-site.png' height='50px')
+      .container__content
+        .sidebar
+          .styled_select
+            select
+              - for (var i = 5; i >=1; --i)
+                option(value='JLPT') JLPT #{i}
+        .container__table
+          table.table
+            - for (var i = 0; i < 8; ++i)
+              tr
+                - for (var j = 0; j < 12; ++j)
+                  td.table__td 洗
+
+
+      footer.container__footer
+        p Copyright is a lie. Use my tempate as you wish, sick bastard
+
