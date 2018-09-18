@@ -4,17 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   wellButton.addEventListener('click', (e) => {
     document.querySelectorAll('.table__td_clicked').forEach((el)=>{
-      el.classList.remove('table__td_know_bad');
+      el.classList.remove('table__td_know-bad');
       el.classList.remove('table__td_clicked');
-      el.classList.add('table__td_know_well');
+      el.classList.add('table__td_know-well');
     });
   });
 
   badButton.addEventListener('click', (e) => {
     document.querySelectorAll('.table__td_clicked').forEach((el)=>{
-      el.classList.remove('table__td_know_well');
+      el.classList.remove('table__td_know-well');
       el.classList.remove('table__td_clicked');
-      el.classList.add('table__td_know_bad');
+      el.classList.add('table__td_know-bad');
     });
   });
 

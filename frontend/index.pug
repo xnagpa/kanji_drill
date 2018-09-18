@@ -1,22 +1,9 @@
 doctype html
 html
-  head
-    meta(charset='UTF-8')
-    link(rel='stylesheet', href='./styles/main.css')
-    script(src='./javascripts/all.js')
-    link(rel='stylesheet', href='../node_modules/choices.js/assets/styles/css/choices.min.css')
-    script(src='../node_modules/choices.js/assets/scripts/dist/choices.min.js')
+  include includes/head.pug
   body
     .container
-      .container__nav
-        nav.nav
-          ul.nav__ul
-            li.nav__li Учить кандзи
-            li.nav__li
-              a(href='./statistics.html') Смотреть статистику
-            li.nav__li О приложении
-        .nav__logo
-          img(src='https://staticaltmetric.s3.amazonaws.com/uploads/2015/10/dark-logo-for-site.png' height='50px')
+      include includes/nav.pug
       .container__content
         .sidebar
           .styled_select
