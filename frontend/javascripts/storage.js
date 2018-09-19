@@ -9,13 +9,12 @@ class Storage {
   }
 
   add(key, value) {
-    if(alreadyExists(key, value)){
+    if(this.alreadyExists(key, value)){
       console.log("Already exists");
-      return;
+    } else {
+      localStorage.setItem(key, value);
+      console.log("ok");
     }
-
-    localStorage.setItem(key, JSON.stringify(value));
-    console.log("ok");
   };
 
   remove(key) {
@@ -24,12 +23,12 @@ class Storage {
   };
 
   update(key, value) {
-    this.add(key, JSON.stringify(value))
+    this.add(key, value)
     console.log("ok");
   };
 
   get(key) {
-    return JSON.parse(localStorage.getItem(key));
+    return localStorage.getItem(key);
     console.log("ok");
   };
 

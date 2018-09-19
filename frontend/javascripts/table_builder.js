@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let recognizedKanji = {};
 
   fillTable(jlpt5Kanji);
+  fillStatuses();
 
   jlptSelect.addEventListener('change', () => {
     const jlptLevel = jlptSelect.options[jlptSelect.selectedIndex].value;
@@ -18,6 +19,20 @@ function purgeTable(selector) {
      table.removeChild(table.firstChild);
   };
 }
+
+function fillStatuses(){
+  const table = document.querySelector('.table');
+  for (var i = 0; i < table.rows.length; i++) {
+    for (var j = 0; j < table.rows[i].cells.length; j++) {
+      let savedValue = Storage.get(table.rows[i].cells[j].textContent);
+      if(savedValue === 'well'){
+        table.rows[i].cells[j].classList.add('table__td_know-well');
+      } else if(savedValue === 'bad'){
+        table.rows[i].cells[j].classList.add('table__td_know-bad');
+      };
+    };
+  };
+};
 
 function fillTable(kanjiArray) {
   const table = document.querySelector('.table');

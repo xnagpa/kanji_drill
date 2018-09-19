@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
-  drawGraph(500, 1024);
   const statisticsLink = document.querySelector('.js-build-statistics');
-  console.log('KEKUS1!!!');
   statisticsLink.addEventListener('click', () => (initStatistics()));
+  drawGraph(500, 1024);
 });
 
 function toRadians(degrees) {
@@ -10,18 +9,18 @@ function toRadians(degrees) {
 };
 
 function initStatistics(){
-  debugger;
   if(window.location.href.search( /index/i )){
     const total = document.querySelectorAll('.table__td');
     const remembered = document.querySelectorAll('.table__td_know-well');
     const semiRemembered = document.querySelectorAll('.table__td_know-bad');
 
+    debugger;
     remembered.forEach((el) => {
-      debugger;
+      Storage.add(el.textContent, 'well')
     });
 
     semiRemembered.forEach((el) => {
-      Storage.add(el.textContent, 'semi')
+      Storage.add(el.textContent, 'bad')
     });
   }
 }
