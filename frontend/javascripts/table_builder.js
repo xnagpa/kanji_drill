@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const jlptSelect = document.querySelector('.choices__input');
-  let recognizedKanji = {};
-
   fillTable(jlpt5Kanji);
-  fillStatuses();
+  fillStatuses('5');
+
+  const jlptSelect = document.querySelector('.js-main-page-select');
 
   jlptSelect.addEventListener('change', () => {
     const jlptLevel = jlptSelect.options[jlptSelect.selectedIndex].value;
     purgeTable('.table');
     fillTable(eval(`jlpt${jlptLevel}Kanji`));
+    fillStatuses(jlptLevel);
   });
 });
 
@@ -20,14 +20,15 @@ function purgeTable(selector) {
   };
 }
 
-function fillStatuses(){
+function fillStatuses(jlptLevel){
   const table = document.querySelector('.table');
   for (var i = 0; i < table.rows.length; i++) {
     for (var j = 0; j < table.rows[i].cells.length; j++) {
       let savedValue = Storage.get(table.rows[i].cells[j].textContent);
-      if(savedValue === 'well'){
+      
+      if(savedValue && savedValue['grade'] === 'well' && jlptLevel === savedValue['jlptLevel']){
         table.rows[i].cells[j].classList.add('table__td_know-well');
-      } else if(savedValue === 'bad'){
+      } else if(savedValue && savedValue['grade'] === 'bad' && jlptLevel === savedValue['jlptLevel']){
         table.rows[i].cells[j].classList.add('table__td_know-bad');
       };
     };
@@ -35,6 +36,7 @@ function fillStatuses(){
 };
 
 function fillTable(kanjiArray) {
+  console.log(kanjiArray);
   const table = document.querySelector('.table');
 
   for(let i = 0; i < kanjiArray.length; i++ ) {
@@ -83,7 +85,7 @@ const jlpt5Kanji = ['一','七','万','三','上','下','中','九','二',
 '読','買','赤','走','足','車','近','週','道','金','銀','長','間',
 '雨','電','食','飲','駅','高','魚']
 
-const jlpt4Kanji = jlpt5Kanji.concat(['不','世','主','乗','事','京','仕','代','以',
+const jlpt4Kanji = ['不','世','主','乗','事','京','仕','代','以',
 '伝','低','体','作','使','便','借','働','元','兄','光','全','公',
 '内','写','冬','切','別','利','力','勉','動','区','医','去','取',
 '受','台','合','同','味','呼','品','員','問','回','困','図','園',
@@ -98,9 +100,9 @@ const jlpt4Kanji = jlpt5Kanji.concat(['不','世','主','乗','事','京','仕',
 '自','色','英','茶','菜','落','薬','親','計','試','説','調','貸',
 '質','起','転','軽','返','送','通','連','進','遅','運','遠','部',
 '都','重','野','鉄','門','閉','開','降','院','集','青','音','頭',
-'題','顔','風','飯','館','首','験','鳥','黒'])
+'題','顔','風','飯','館','首','験','鳥','黒']
 
-const jlpt3Kanji = jlpt4Kanji.concat(['両','丸','久','予','争','交','仏','他','付',
+const jlpt3Kanji = ['両','丸','久','予','争','交','仏','他','付',
 '令','仲','件','任','似','位','余','例','係','信','個','倒','候',
 '停','側','備','像','優','兆','共','具','再','冷','刊 ','列','初',
 '判','制','刷 ','刻','則','副','割','加','助','努','労','務','勝',
@@ -129,9 +131,9 @@ const jlpt3Kanji = jlpt4Kanji.concat(['両','丸','久','予','争','交','仏',
 '議','谷','豊','象','負','財','責','費','資','賛','路','身','軍','輪',
 '農','辺','迷','追','退','速','遊','過','達','違 ','適','選','配','酒',
 '録','関','限','陸','険','陽','階','際','雑','雪','雲','静','非','面',
-'願','類','飛','馬','鳴','鼻'])
+'願','類','飛','馬','鳴','鼻']
 
-const jlpt2Kanji = jlpt3Kanji.concat(['与','並','乱','乳','乾','了','互','亡','介','伸',
+const jlpt2Kanji = ['与','並','乱','乳','乾','了','互','亡','介','伸',
 '伺','供','依','倍','値','偉','偶','傾','億','児','党','兵','冊','凍',
 '処','到','倍','券','刺','劇','効','勇','募','勤','匹','占','卵','双',
 '収','叫','召','否','含','咲','喫','圧','均','坊','埋','城','域','塔',
@@ -152,6 +154,6 @@ const jlpt2Kanji = jlpt3Kanji.concat(['与','並','乱','乳','乾','了','互',
 '贈','超','越','跡','踊','軒','軟','輸','辛','辞','込','迎','述','逃',
 '逆','途','造','郊','郵','量','針','鈍','鉱','銅','鋭','防','除','隅',
 '隻','雇','難','零','震','革','靴','頂','順','預','領','頼','額','香',
-'駐','骨','髪','麦','黄','齢'])
+'駐','骨','髪','麦','黄','齢']
 
-const jlpt1Kanji = jlpt2Kanji
+const jlpt1Kanji = jlpt5Kanji.concat(jlpt4Kanji).concat(jlpt3Kanji).concat(jlpt2Kanji)

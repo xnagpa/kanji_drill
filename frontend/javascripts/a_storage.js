@@ -12,7 +12,7 @@ class Storage {
     if(this.alreadyExists(key, value)){
       console.log("Already exists");
     } else {
-      localStorage.setItem(key, value);
+      localStorage.setItem(key, JSON.stringify(value));
       console.log("ok");
     }
   };
@@ -23,12 +23,12 @@ class Storage {
   };
 
   update(key, value) {
-    this.add(key, value)
+    this.add(key, JSON.stringify(value));
     console.log("ok");
   };
 
   get(key) {
-    return localStorage.getItem(key);
+    return JSON.parse(localStorage.getItem(key));
     console.log("ok");
   };
 
@@ -39,5 +39,16 @@ class Storage {
     } else {
       return false;
     };
+  };
+
+  countGrade(criteria, jlptLevel, jlptArray) {
+    let count = 0;
+    for (var i = 0; i < jlptArray.length; i++){
+      let currentItem = this.get(jlptArray[i]);
+      if(currentItem && currentItem['grade'] == criteria && currentItem['jlptLevel'] == jlptLevel){
+        count++;
+      };
+    };
+    return count;
   };
 }

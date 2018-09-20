@@ -8,6 +8,9 @@ html
         .container__canvas
           canvas(width='400' height='400').statistics
         .container__statistics
+          select.js-statistics-select
+            - for (var i = 5; i >=1; --i)
+              option(value=i) JLPT #{i}
           h2
             b Уровень N3
           p Выучено иероглифов 154
