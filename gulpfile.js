@@ -38,7 +38,7 @@ gulp.task('babel', function(){
 
 
 gulp.task('pug', function(){
-  return gulp.src('frontend/index.pug'  )
+  return gulp.src('frontend/**/*.pug'  )
   .pipe(pug( { pretty: true } ))
   .pipe(gulp.dest('public'))
 });

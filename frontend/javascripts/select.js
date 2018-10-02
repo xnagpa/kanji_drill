@@ -1,3 +1,3 @@
-document.addEventListener('DOMContentLoaded', function(){
-  new Choices(document.querySelector('select'));
+document.addEventListener("DOMContentLoaded", function(){
+  new Choices(document.querySelector("select"));
 });

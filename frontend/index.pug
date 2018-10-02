@@ -1,35 +1,25 @@
 doctype html
 html
-  head
-    meta(charset='UTF-8')
-    link(rel='stylesheet', href='./styles/main.css')
-    script(src='./javascripts/all.js')
-    link(rel='stylesheet', href='../node_modules/choices.js/assets/styles/css/choices.min.css')
-    script(src='../node_modules/choices.js/assets/scripts/dist/choices.min.js')
+  include includes/head.pug
   body
     .container
-      .container__nav
-        nav.nav
-          ul.nav__ul
-            li.nav__li Учить кандзи
-            li.nav__li Смотреть статистику
-            li.nav__li О приложении
-        .nav__logo
-          img(src='https://staticaltmetric.s3.amazonaws.com/uploads/2015/10/dark-logo-for-site.png' height='50px')
+      include includes/nav.pug
       .container__content
         .sidebar
           .styled_select
-            select
+            select.js-main-page-select
               - for (var i = 5; i >=1; --i)
-                option(value='JLPT') JLPT #{i}
+                option(value=i) JLPT #{i}
+          .answer
+            .answer__button._color_blue.js-know-well
+              p Знаю хорошо
+            .answer__button._color_red.js-know-bad
+              p Знаю не очень хорошо
+
         .container__table
           table.table
-            - for (var i = 0; i < 8; ++i)
-              tr
-                - for (var j = 0; j < 12; ++j)
-                  td.table__td 洗
 
 
-      footer.container__footer
-        p Copyright is a lie. Use my tempate as you wish, sick bastard
+    footer.container__footer
+      p Copyright is a lie. Use my tempate as you wish, sick bastard
 
