@@ -5,20 +5,38 @@ html
     .main_container
       .container
         .header
+          .angle
+            .angle__inner
           .header__logo
             img(src="https://starwars.ru/static/images/sw_logo.png?15256b9a3e85)")
           .header__menu
             .menu_nav
               ul
-                li Вселенная
-                li Фильмы
-                li Игры
-                li Анимация
-                li Видео
-          .angle
-            p Kekus
+                li
+                  include svg/universe.pug
+                  |Вселенная
+                  span.arrow.arrow_blue
+                li
+                  include svg/ic_movies.pug
+                  |Фильмы
+                  span.arrow.arrow_red
+                li
+                  include svg/ic_games.pug
+                  |Игры
+                  span.arrow.arrow_green
+                li
+                  include svg/ic_animation.pug
+                  |Анимация
+                  span.arrow.arrow_yellow
+                li
+                  include svg/ic_video.pug
+                  |Видео
+                  span.arrow.arrow_violet
         .slider
-          img(src="https://starwars.ru/media/slider/1024x4095.jpg")
+          .slider__header
+            h1 Звездные войны
+          .slider__image
+            img(src="https://starwars.ru/media/slider/1024x4095.jpg")
         .under_slider
           .under_slider__search
             .search
@@ -29,7 +47,6 @@ html
                   input(type='text')
           .under_slider__weather
             img(src="https://starwars.ru/media/cache/eb/1b/eb1bea5ff4884d57681f4c9002860330.png")
-        .float_terminator
         .gallery.heroes
           .gallery__main_title
             h2 Вселенная
@@ -94,8 +111,7 @@ html
               .gallery_image
                 img(width="248px" height="248px" src="https://starwars.ru/media/cache/8c/87/8c87ffb3b664d3062876db3faf8b710d.png")
           .gallery__link_all
-            a(href='' Все персонажи)
-        .float_terminator
+            a.all_link(href='') Все персонажи
         .gallery.movies
           .gallery__main_title
             h2 Фильмы
@@ -129,7 +145,7 @@ html
               .gallery_image
                 img(width="247px" height="348px" src="https://starwars.ru/media/cache/fc/90/fc9012f29aec3ff8a3b169d903ccbe11.png")
           .gallery__link_all
-            a(href='' Все фильмы)
+            a.all_link(href='') Все фильмы
         .gallery.games
           .gallery__main_title
             h2 Игры
@@ -158,8 +174,7 @@ html
               .gallery_image
                 img(width="247px" height="102px" src="https://starwars.ru/media/cache/aa/99/aa9912cb13cfa2a3d6694fb89e425772.png")
           .gallery__link_all
-            a href='' Все онлайн игры
-        .float_terminator
+            a.all_link(href='') Все онлайн игры
         .gallery.ads
           .gallery__content
             .gallery__item
@@ -170,7 +185,6 @@ html
           .gallery__content
             .gallery__item
               img(src="")
-        .float_terminator
         footer.footer
           .footer__list
             .column
