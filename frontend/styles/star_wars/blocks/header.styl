@@ -1,9 +1,8 @@
+@import '../../mixins/clear_fix.styl'
+
 .header
   position relative
-  &::after
-    clear both
-    display block
-    content ''
+  clear_fix()
   padding 98px 0 24px 0
 
 .header__logo

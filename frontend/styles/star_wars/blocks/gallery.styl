@@ -1,3 +1,4 @@
+@import '../../mixins/clear_fix.styl'
 .gallery
   width 100%
 
@@ -12,11 +13,7 @@
 .gallery__content
   width 100%
   position relative
-
-  &::after
-    content ''
-    display block
-    clear both
+  clear-fix()
 
 .gallery__item
   width: 247px

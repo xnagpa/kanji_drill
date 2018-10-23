@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.1.0",
-    "choices.js": "^3.0.4"
+    "choices.js": "^3.0.4",
+    "express": "^4.16.3"
   }
 }
